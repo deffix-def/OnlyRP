@@ -229,21 +229,21 @@ end
 
 function sampev.onServerMessage(clr, text)
     if inisettings.settings.state then
-        if clr == -577699926 and text:find('%w+_%w+ достаёт мобильный телефон и отправляет СМС') then
+        if clr == -577699926 and text:find('%w+_%w+ Г¤Г®Г±ГІГ ВёГІ Г¬Г®ГЎГЁГ«ГјГ­Г»Г© ГІГҐГ«ГҐГґГ®Г­ ГЁ Г®ГІГЇГ°Г ГўГ«ГїГҐГІ Г‘ГЊГ‘') then
             return false
         end
-        if clr == -577699926 and text:find('%w+_%w+ отправил СМС') then
+        if clr == -577699926 and text:find('%w+_%w+ Г®ГІГЇГ°Г ГўГЁГ« Г‘ГЊГ‘') then
             return false
         end
-        if clr == -1 and text:find('%w+_%w+%[%d+%] говорит: ') then
+        if clr == -1 and text:find('%w+_%w+%[%d+%] ГЈГ®ГўГ®Г°ГЁГІ: ') then
             if not inisettings.settings.show_rp_chat then
                 return false
             end
-        elseif clr == -1112052737 and text:find('%w+_%w+ шепчет: ') then
+        elseif clr == -1112052737 and text:find('%w+_%w+ ГёГҐГЇГ·ГҐГІ: ') then
             if not inisettings.settings.show_w then
                 return false
             end
-        elseif clr == 1147587839 and text:find('%[Гос. новости%] %w+_%w+: ') then
+        elseif clr == 1147587839 and text:find('%[ГѓГ®Г±. Г­Г®ГўГ®Г±ГІГЁ%] %w+_%w+: ') then
             if not inisettings.settings.show_gnews then
                 return false
             end
@@ -251,7 +251,7 @@ function sampev.onServerMessage(clr, text)
             if not inisettings.settings.show_smi then
                 return false
             end
-        elseif clr == -65281 and text:find('%[Пейджер%] от %w+_?%w+%[%d+%]: ') then
+        elseif clr == -65281 and text:find('%[ГЏГҐГ©Г¤Г¦ГҐГ°%] Г®ГІ %w+_?%w+%[%d+%]: ') then
             if not inisettings.settings.show_sms then
                 return false
             end
@@ -263,11 +263,11 @@ function sampev.onServerMessage(clr, text)
             if not inisettings.settings.show_d then
                 return false
             end
-        elseif clr == -4881153 and text:find('%w+_%w+%[%d+%] кричит: ') then
+        elseif clr == -4881153 and text:find('%w+_%w+%[%d+%] ГЄГ°ГЁГ·ГЁГІ: ') then
             if not inisettings.settings.show_s then
                 return false
             end
-        elseif clr == -1 and text:find('сказал %w+_%w+') and text:find('"') then
+        elseif clr == -1 and text:find('Г±ГЄГ Г§Г Г« %w+_%w+') and text:find('"') then
             if not inisettings.settings.show_todo then
                 return false
             end
@@ -311,72 +311,72 @@ end, function(player)
     imgui.PopFont()
 
     imgui.SetCursorPosY(imgui.GetCursorPosY() + 5)
-    if imgui.ToggleButton(u8'##Активация скрипта', checkbox_state) then
+    if imgui.ToggleButton(u8'##ГЂГЄГІГЁГўГ Г¶ГЁГї Г±ГЄГ°ГЁГЇГІГ ', checkbox_state) then
         inisettings.settings.state = checkbox_state[0]
         inicfg.save(inisettings, inicfgfile)
     end
     imgui.SameLine(0, 4)
     imgui.PushFont(norm)
     if inisettings.settings.state then
-        imgui.Text(u8'Активность скрипта')
+        imgui.Text(u8'ГЂГЄГІГЁГўГ­Г®Г±ГІГј Г±ГЄГ°ГЁГЇГІГ ')
     else
-        imgui.TextDisabled(u8'Активность скрипта')
+        imgui.TextDisabled(u8'ГЂГЄГІГЁГўГ­Г®Г±ГІГј Г±ГЄГ°ГЁГЇГІГ ')
     end
     imgui.PopFont()
 
     imgui.SetCursorPosY(imgui.GetCursorPosY() + 5)
-    if imgui.CustomCheckbox(u8'Показывать РП чат', checkbox_show_rp_chat) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГђГЏ Г·Г ГІ', checkbox_show_rp_chat) then
         inisettings.settings.show_rp_chat = checkbox_show_rp_chat[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать /me', checkbox_show_me) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј /me', checkbox_show_me) then
         inisettings.settings.show_me = checkbox_show_me[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать /ame', checkbox_show_ame) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј /ame', checkbox_show_ame) then
         inisettings.settings.show_ame = checkbox_show_ame[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать /do', checkbox_show_do) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј /do', checkbox_show_do) then
         inisettings.settings.show_do = checkbox_show_do[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать /todo', checkbox_show_todo) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј /todo', checkbox_show_todo) then
         inisettings.settings.show_todo = checkbox_show_todo[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать шёпот (/w)', checkbox_show_w) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГёВёГЇГ®ГІ (/w)', checkbox_show_w) then
         inisettings.settings.show_w = checkbox_show_w[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать крик (/s)', checkbox_show_s) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГЄГ°ГЁГЄ (/s)', checkbox_show_s) then
         inisettings.settings.show_s = checkbox_show_s[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать чат рации (/r)', checkbox_show_r) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г·Г ГІ Г°Г Г¶ГЁГЁ (/r)', checkbox_show_r) then
         inisettings.settings.show_r = checkbox_show_r[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать чат департамента (/d)', checkbox_show_d) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г·Г ГІ Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІГ  (/d)', checkbox_show_d) then
         inisettings.settings.show_d = checkbox_show_d[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать пейджер (/sms)', checkbox_show_sms) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГЇГҐГ©Г¤Г¦ГҐГ° (/sms)', checkbox_show_sms) then
         inisettings.settings.show_sms = checkbox_show_sms[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать Гос. новости (/gnews)', checkbox_show_gnews) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГѓГ®Г±. Г­Г®ГўГ®Г±ГІГЁ (/gnews)', checkbox_show_gnews) then
         inisettings.settings.show_gnews = checkbox_show_gnews[0]
         inicfg.save(inisettings, inicfgfile)
     end
-    if imgui.CustomCheckbox(u8'Показывать эфир (СМИ)', checkbox_show_smi) then
+    if imgui.CustomCheckbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГЅГґГЁГ° (Г‘ГЊГ€)', checkbox_show_smi) then
         inisettings.settings.show_smi = checkbox_show_smi[0]
         inicfg.save(inisettings, inicfgfile)
     end
 
     imgui.SetCursorPosX(imgui.GetCursorPosX() + 100)
     imgui.SetCursorPosY(imgui.GetCursorPosY() + 6)
-    if imgui.Button(u8'Закрыть', imgui.ImVec2(100, 20)) then
+    if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј', imgui.ImVec2(100, 20)) then
         settings.switch()
     end
 
